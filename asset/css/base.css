@@ -1,0 +1,228 @@
+
+:root {
+    --while-color: #fff;
+    --back-color: #000;
+    --text-color: #333;
+    --primary-color:#f0686a ;
+    --border-color: #dbdbdb;
+    --header-height: 120px;
+    --navbar-height :30px;
+    --header-width-seacrch-height: calc( var(--header-height) - var(--navbar-height));
+    --start-gold-color: #ffce3e;
+}
+
+ * {
+    margin:0;
+    margin-left: 0;
+    padding: 0;
+    box-sizing: inherit;  /*thuộc tính này là những thằng con kế thừa từ thẻ cha */
+  }  /*các thuộc tính trong này dùng cho cả trang web */
+
+
+html {
+    font-size: 62.5%; /* mặc định ở đây nếu để 100% sẽ là 16px*/
+    /* width: 100vw; */
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+
+}
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.gird__full-width {
+    width: 100%;
+}
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+.grid__column-2{
+    padding-left: 5px;
+    padding-right:  5px;
+    width: 16.6667%;
+}
+.grid__column-2-4{
+    padding-left: 5px;
+    padding-right:  5px;
+    width: 20%;
+}
+.grid__column-10 {
+    padding-left: 5px;
+    padding-right:  5px;
+    width: 83.333%;
+}
+/* hieu ung xuat hien ro dần */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+    to {
+        transform: scale(var(--growth-to));
+
+    }
+}
+/* Modal */
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    
+
+
+}
+.modal__overlay{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    
+
+}
+.modal__body{
+    --growth-from: 0.7;
+    --growth-to : 1;
+    position: relative;
+    background-color: #fff;
+    margin: auto;
+    z-index: 3;
+    border-radius: 5px;
+    animation: growth linear 0.2s;
+
+}
+
+.auth-from__controls{
+   margin-top: 80px;
+   
+}
+.btn{
+    min-width: 146px;
+    height: 34px;
+    text-decoration: none;
+    border:none;
+    border-radius:2px;
+    font-size: 1.5rem;
+    background-color: #fff;
+    cursor: pointer;
+    color: var(--text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn.btn-nomal:hover{
+    background-color: rgba(0, 0, 0, .3);
+}
+.btn.btn--primary{
+    background-color: var(--primary-color);
+    color: var(--while-color);
+}
+.btn.btn--size-s{
+    min-width: 210px !important;
+    height: 32px;
+    font-size: 12px;
+    
+}
+/* section input */
+.select-input{
+    position: relative;
+    background-color: var(--while-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 200px;
+    border-radius: 3px;
+    padding: 8px;
+    font-size: 1.4rem;
+    
+}
+.select-input:hover .select-input_list{
+    display: block;
+}
+.select-input_list{
+    position: absolute;
+    top: 27px;
+    left: 0;
+    right: 0;
+    border-radius: 2px;
+    background-color: var(--while-color);
+    padding: 10px;
+    list-style: none;
+    text-decoration: none;
+    display: none;
+    margin-top: 10px;
+    box-shadow: 0 1px 3.125rem rgba(0, 0, 0, 0.2);
+}
+.select-input_list::before{
+
+    /* tạo phần đệm khi di chuột */
+    content:"";
+    background-color:transparent;
+    width: 200px;
+    height: 14px;
+    top: -12px;
+    left: 0;
+    position: absolute;
+   
+}
+.select-input_list a{
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 4px;
+    display: block;
+    padding: 10px 0;
+   
+}
+.select-input_list a:hover{
+    color: var(--primary-color);
+}
+/* pagination */
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+
+}
+.pagination__item{
+    list-style: none;
+    margin: 0 12px;
+}
+.pagination__item-link{
+    --height: 30px;
+    display:block;
+    text-decoration: none;
+    min-width: 40px;
+    height:var(--height);
+    line-height:var(--height) ;
+    color: #939393;
+    text-align: center;
+    font-size: 1.8rem
+    
+}
+.pagination__item-icon{
+    
+
+} 
+.pagination__item--active .pagination__item-link{
+    color:var(--while-color);
+    background-color: var(--primary-color);
+   border-radius: 1px;
+}
+.pagination__item--active .pagination__item-link:hover{
+    filter: brightness(90%);
+}
